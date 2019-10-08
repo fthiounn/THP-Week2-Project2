@@ -14,7 +14,13 @@ end
 def perform
 	dictionnary = ["the", "of", "and", "to", "a", "in", "for", "is", "on", "that", "by", "this", "with", "i", "you", "it", "not", "or", "be", "are"]
 	corpus = File.read("shakespeare.txt")
-	puts "Voici le Hash des occurences : "
+	puts "Voici le Hash des occurences du dictionnary donné: "
 	puts word_counter(corpus,dictionnary)
+
+	#google swearwords
+	dictionnary = File.read("swearWords.txt").lines.map { |e| e.chop }
+	puts "Voici le Hash des occurences de swearWords (de google): "
+	puts word_counter(corpus,dictionnary)
+
 end
 perform
